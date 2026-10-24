@@ -1,0 +1,42 @@
+FASE 1 — DIMENSIONAMIENTO
+Proyecto: Dulce Hogar
+Asignatura: Gestión de Servidores Web
+Alumno: Emerson Raúl Ventura Castillo. U20241017
+
+1. Con 500 visitas/día y 5 peticiones por visita, ¿cuál es el promedio de peticiones/segundo? Aplica
+un factor pico de 15 y calcula el pico real
+Cálculo de peticiones por segundo
+
+
+Peticiones diarias = 500 × 5 = 2,500
+
+Promedio de peticiones por segundo = 2,500 ÷ 86,400 = 0.0289 peticiones/segundo.
+
+Aplicando un factor pico de 15:
+
+Pico estimado = 0.0289 × 15 = 0.434 peticiones/segundo.
+
+Entonces, el promedio es aproximadamente 0.029 peticiones por segundo y el pico estimado es de 0.434 peticiones por segundo.
+
+2. ¿Los 2 vCPU y 4 GB de RAM alcanzan para el tráfico diario? ¿Y para el pico de 3,000 visitas?
+Justifica.
+
+Considero que 2 vCPU y 4 GB de RAM son suficientes para el tráfico diario de una pequeña repostería, siempre que el sitio esté bien configurado. Para los picos de 3,000 visitas, podrían ser suficientes, pero sería necesario monitorear el consumo de CPU y RAM para evitar lentitud cuando aumenten las peticiones simultáneas.
+
+3. ¿Qué recurso revisaría primero si el sitio responde lentamente?
+
+Revisaría primero el uso de CPU y RAM mediante herramientas como top o htop. Si la CPU está saturada, las peticiones pueden tardar en procesarse; si falta memoria RAM, el sistema puede utilizar memoria de intercambio y disminuir su rendimiento. También revisaría los logs para identificar errores.
+
+4. Decisión personal: para un negocio como “Dulce Hogar”, ¿recomiendas nube o servidor local?
+Menciona 3 criterios (costo, escalabilidad, mantenimiento).
+
+Recomiendo utilizar un servidor en la nube por las siguientes razones:
+
+Costo: permite comenzar con un plan pequeño sin comprar un servidor físico.
+Escalabilidad: facilita aumentar los recursos cuando crece la cantidad de clientes.
+Mantenimiento: el proveedor administra parte de la infraestructura física y ofrece opciones de disponibilidad y respaldo.
+
+5. Reto: si el sitio fuera solo HTML/CSS estático (sin Express), ¿bajaría la necesidad de CPU?
+Explica por qué.
+
+Sí. Un sitio que utiliza únicamente HTML y CSS normalmente necesita menos CPU porque Apache puede entregar archivos estáticos sin ejecutar la lógica de una aplicación Express. Esto reduce el procesamiento por petición y permite atender solicitudes con menos recursos, aunque el consumo también depende del volumen de tráfico y del tamaño de los archivos.
