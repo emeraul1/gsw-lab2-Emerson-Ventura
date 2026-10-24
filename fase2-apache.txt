@@ -1,0 +1,11 @@
+FASE 1 — DIMENSIONAMIENTO
+Proyecto: Dulce Hogar
+Asignatura: Gestión de Servidores Web
+Alumno: Emerson Raúl Ventura Castillo. U20241017
+
+1. ¿Qué diferencia hay entre sites-available y sites-enabled?
+sites-available contiene las configuraciones de los sitios web disponibles, mientras que sites-enabled contiene los sitios que están habilitados para funcionar en Apache. Se utiliza a2ensite para habilitar un sitio.
+
+2. ¿Por qué se ejecuta configtest antes de reload?
+
+Porque apache2ctl configtest verifica que la configuración de Apache no tenga errores de sintaxis. Si aparece Syntax OK, se puede recargar el servicio con reload para aplicar los cambios sin detenerlo completamente.
