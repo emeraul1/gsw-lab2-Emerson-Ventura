@@ -1,0 +1,26 @@
+Fase 4: HTTPS y permisos POSIX
+Proyecto: Dulce Hogar
+Asignatura: Gestión de Servidores Web
+Alumno: Emerson Raúl Ventura Castillo. U20241017
+
+
+Preguntas de la Fase 4
+¿Por qué Certbot no funciona para dulcehogar.local?
+
+Certbot utiliza certificados de autoridades certificadoras públicas, como Let's Encrypt. El dominio dulcehogar.local es de uso local y no es un dominio público verificable mediante los métodos habituales de validación de Let's Encrypt. Por eso utilizamos mkcert para generar certificados de confianza en nuestro entorno local.
+
+¿Qué diferencia hay entre un certificado autofirmado y uno firmado por mkcert?
+
+Un certificado autofirmado está firmado por su propio titular y los navegadores normalmente no confían en él de forma predeterminada. Mkcert crea una autoridad certificadora local y firma los certificados con ella. Cuando instalamos la CA de mkcert en el almacén de confianza del equipo, el navegador puede confiar en los certificados generados para el desarrollo local.
+
+¿Por qué chmod 777 sería una mala práctica en este sitio?
+
+Porque otorga permisos de lectura, escritura y ejecución al propietario, al grupo y a todos los demás usuarios. Esto permitiría que usuarios no autorizados modificaran los archivos del sitio web, lo que podría comprometer su contenido y seguridad. Por eso aplicamos permisos 755 al directorio y sus archivos.
+
+Reto: si el dominio fuera dulcehogar.com.sv público, ¿qué cambiarías?
+
+Herramienta: utilizaría Certbot con Let's Encrypt para obtener un certificado TLS público.
+
+Puerto: configuraría HTTPS en el puerto estándar 443, permitiendo el acceso mediante https://dulcehogar.com.sv/.
+
+DNS: registraría el dominio y configuraría los registros DNS correspondientes para apuntar al servidor público. También permitiría el tráfico entrante por los puertos 80 y 443 y configuraría el servidor web para validar y renovar el certificado.
