@@ -1,0 +1,16 @@
+FASE 3 
+Proyecto: Dulce Hogar
+Asignatura: Gestión de Servidores Web
+Alumno: Emerson Raúl Ventura Castillo. U20241017
+
+1. ¿Qué hace exactamente ProxyPass /api http://IP_HOST:9090/api?
+
+La directiva ProxyPass reenvía las solicitudes que llegan a Apache por la ruta /api hacia la API de Express que se ejecuta en Windows, en el puerto 9090. De esta forma, Apache actúa como intermediario entre el navegador y Express.
+
+2. ¿Por qué localhost desde WSL2 no llega al Express en Windows?
+
+Porque localhost se refiere al entorno donde se ejecuta el comando. Desde WSL2, puede apuntar al propio Linux y no al servidor Express de Windows. Por eso se utiliza la dirección IP de Windows accesible desde Linux. En esta práctica se utilizó Ubuntu en VirtualBox, no WSL2.
+
+3. Reto: ¿qué pasaría si escribes ProxyPass /api http://IP_HOST:9090 sin /api final? Pruébalo.
+
+Al quitar /api de la dirección de destino, Apache puede reenviar la solicitud a una ruta diferente de la que espera Express. Por ejemplo, una solicitud a /api/saludo podría llegar a Express como /saludo, provocando un error porque esa ruta no está definida.
